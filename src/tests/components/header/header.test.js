@@ -1,22 +1,24 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Header from '../../../components/header/Header'
-import { italic } from 'ansi-colors';
 
-
+const setUp = (props = {}) => {
+    const component = shallow(<Header {...props} />)
+    return component
+}
 
 
 describe('Header Component', () => {
 
     it('should render without errors', () => {
-        const component = shallow(<Header />)
-        const wrapper = component.find('.header-component')
+        const component = setUp()
+        const wrapper = component.find(`[data-test='header-component']`)
         expect(wrapper.length).toBe(1)
     })
 
     it('should render a logo', () => {
         const component = shallow(<Header />)
-        const logo = component.find('.logo-img')
+        const logo = component.find(`[data-test='logo-img']`)
         expect(logo.length).toBe(1)
     })
 })
