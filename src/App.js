@@ -1,9 +1,11 @@
 import React from 'react';
+import Header from './components/header/Header'
+import './app.scss'
 
 function App() {
   return (
     <div className="App">
-      <p>React tdd</p>
+      <Header />
     </div>
   );
 }
